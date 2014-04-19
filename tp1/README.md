@@ -1,3 +1,5 @@
+[[English](https://github.com/twissell-/genetics/tree/master/tp1#exercise)|[Español](https://github.com/twissell-/genetics/tree/master/tp1#ejercicio)]
+
 # Exercise
 
 Make a program that uses a canonical genetic algorithm to search for a maximum of the function:
@@ -19,18 +21,18 @@ Considering the following:
 
 
 The program should eventually show the chromosome corresponding to the maximum value obtained and graphs in EXCEL objective function's Max, Min and Avg of each generation.
-Make comparisons of the outputs running the same program after 1000 iterations and 100 iterations.
+Make comparisons of the outputs running the same program after 100 and 1000 iterations.
 
 ---
 
 # Ejercicio
 
 Hacer un programa que utilice un Algoritmo Genético Canónico para buscar un máximo de la función:
-```markdown
-f(x) = ( x / coef )^2 
+
+**f(x) = ( x / coef )^2**
 
 en el dominio [0 , 2^30 ‐1], donde coef = 230 ‐1 
-```
+
 teniendo en cuenta los siguientes datos: 
 
 - Probabilidad de Crossover = 0,75
@@ -42,9 +44,4 @@ teniendo en cuenta los siguientes datos:
 - Método de Mutación: invertida
 
 
-El programa debe mostrar, finalmente, el Cromosoma 
-correspondiente al valor máximo obtenido y gráficas en 
-EXCEL, de Máx, Mín y Promedio de la función objetivo por 
-cada generación.
-Realizar comparaciones de las salidas corriendo el mismo 
-programa 100 ciclos y luego 1000 ciclos.
+El programa debe mostrar, finalmente, el Cromosoma correspondiente al valor máximo obtenido y gráficas en EXCEL, de Máx, Mín y Promedio de la función objetivo por cada generación. Realizar comparaciones de las salidas corriendo el mismo programa 100 ciclos y luego 1000 ciclos.
