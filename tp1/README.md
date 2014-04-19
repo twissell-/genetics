@@ -1,4 +1,4 @@
-**[[English](https://github.com/twissell-/genetics/tree/master/tp1#exercise)|[Español](https://github.com/twissell-/genetics/tree/master/tp1#ejercicio)]**
+**[ [English](https://github.com/twissell-/genetics/tree/master/tp1#exercise) | [Español](https://github.com/twissell-/genetics/tree/master/tp1#ejercicio) ]**
 
 # Exercise
 
