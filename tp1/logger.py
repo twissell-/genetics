@@ -6,45 +6,43 @@ class logger(object):
 
 	def __init__(self):
 		super(logger, self).__init__()
-		self.fname = (strftime("%x") + strftime("%X")).replace('/', '').replace(':', '') + '.md'
+		self.fname = 'logs/' + (strftime("%x") + strftime("%X")).replace('/', '').replace(':', '') + '.ods'
+
+	def startReport(self, coChance, mChance, iterations, reportEach):
+		self._open()
+		self.log.write('Genetic Algorithm Log\n' +
+			'Started on:\t' + strftime("%x") + '\tat:\t' + strftime("%X") + '\n' +
+			'Cross-Over chance:\t' + str(coChance) + '\t' + 
+			'Mutation chance:\t' + str(mChance) + '\n' + 
+			'Iterations:\t' + str(iterations) + '\t' + 
+			'Reporting each:\t' + str(reportEach) + ' iterations\n')
+		self.log.write('\n')
+		self.log.write('"Population"\t"Obj. Max"\t"Obj. Min"\t"Obj. Avg"\n')
+
+	def endReport(self):
+		self._writeFooter()
+		self._close()
 		
-	def open(self):
+	def reportLine(self, popCount, ofValues, ffValues):
+		ofAvg = sum(ofValues) / len(ofValues)
+		ofMax = max(ofValues)
+		ofMin = min(ofValues)
+
+		self.log.write(str(popCount))
+		self.log.write(
+			'\t' + str(ofMax).replace('.', ',') + 
+			'\t' + str(ofMin).replace('.', ',') + 
+			'\t' + str(ofAvg).replace('.', ',') + '\n')
+
+	def _open(self):
 		self.log = open(self.fname, 'a')
 
-	def close(self):
+	def _close(self):
 		self.log.close()
 
-	def writeHeader(self):
-		self.log.write('Genetic Algorithm Log\n')
-		self.log.write('---\n\n')
-		self.log.write('~~~\n')
-		self.log.write('Started on: ' + strftime("%x"))
-		self.log.write(' at ' + strftime("%X") + '\n')
-		self.log.write('~~~\n\n')
-		self.log.write('---\n')
-
-	def writeReportHead(self):
-		self.log.write('|Population|Obj. Sum|Obj. Avg|Obj. Max|Fit. Sum|Fit. Avg|Fit. Max|\n')
-		self.log.write('|---|---|---|---|---|---|---|\n')
-
-	def writeReportLine(self, popCount, ofValues, ffValues):
-		ofSum = sum(ofValues)
-		ofAvg = ofSum / len(ofValues)
-		ofMax = max(ofValues)
-		ffSum = sum(ffValues)
-		ffAvg = ffSum / len(ffValues)
-		ffMax = max(ffValues)
-
-		self.log.write('|' + str(popCount))
-		self.log.write('|' + str(ofSum) + '|' + str(ofAvg) + '|' + str(ofMax))
-		self.log.write('|' + str(ffSum) + '|' + str(ffAvg) + '|' + str(ffMax) + '|\n')
-
-	def writeFooter(self):
-		self.log.write('---\n\n')
-		self.log.write('~~~\n')
-		self.log.write('Ended on: ' + strftime("%x"))
-		self.log.write(' at ' + strftime("%X") + '\n')
-		self.log.write('~~~\n\n')
+	def _writeFooter(self):
+		self.log.write('\n\nEnded on:\t' + strftime("%x") + '\tat:\t' + 
+			strftime("%X") + '\n')
 
 	def writeSummary(self, popCount, ofValues, ffValues):
 		'''Deprecated'''
@@ -72,18 +70,3 @@ class logger(object):
 			self.log.write('|' + str(ofValues[x]))
 			self.log.write('|' + str(ffValues[x]) + '|\n')
 		self.log.write('---\n')
-
-# Usage Example
-#
-#from lib import newPopulation
-#from logger import logger
-#
-#logger = logger()
-#logger.open()
-#logger.writeHeader()
-#logger.writeReportHead()
-#for x in xrange(1,1000):
-#	popu = newPopulation(10, 30, 2)
-#	logger.writeReportLine(x, objetiveFunc(popu, COEF), fitness(popu, COEF))
-#logger.writeFooter()
-#
