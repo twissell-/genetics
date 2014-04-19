@@ -1,4 +1,4 @@
-[[English](https://github.com/twissell-/genetics/tree/master/tp1#exercise)|[Español](https://github.com/twissell-/genetics/tree/master/tp1#ejercicio)]
+**[[English](https://github.com/twissell-/genetics/tree/master/tp1#exercise)|[Español](https://github.com/twissell-/genetics/tree/master/tp1#ejercicio)]**
 
 # Exercise
 
@@ -23,7 +23,6 @@ Considering the following:
 The program should eventually show the chromosome corresponding to the maximum value obtained and graphs in EXCEL objective function's Max, Min and Avg of each generation.
 Make comparisons of the outputs running the same program after 100 and 1000 iterations.
 
----
 
 # Ejercicio
 
