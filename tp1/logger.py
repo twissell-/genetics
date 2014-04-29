@@ -1,5 +1,5 @@
 from time import strftime
-from lib import chrToString
+from lib import chrToString, binToDec
 
 class logger(object):
 	'''This object will manage all the logs functions'''
@@ -33,6 +33,12 @@ class logger(object):
 			'\t' + str(ofMax).replace('.', ',') + 
 			'\t' + str(ofMin).replace('.', ',') + 
 			'\t' + str(ofAvg).replace('.', ',') + '\n')
+
+	def reportChampion(self, chro, dec, fitness, objetive):
+		self.log.write('Best Chromesome:\t' + chro + 
+			'\tDecimal Value:\t' + dec + 
+			'\tFitness:\t' + fitness +
+			'\tObjetive:\t' + objetive)
 
 	def _open(self):
 		self.log = open(self.fname, 'a')

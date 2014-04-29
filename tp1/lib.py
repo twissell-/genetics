@@ -1,4 +1,6 @@
 from random import randrange, random
+from math import ceil
+
 
 def newPopulation(popSize, gens, range = 2):
 	'''This function returns a matrix of popSize x gens filled up with random 
@@ -56,12 +58,15 @@ def newRoulette(population):
 	roulette = []
 	ffValues = fitness(population)
 	for chrIndex in xrange(0, len(ffValues)):
-		for x in xrange(0, int(ffValues[chrIndex] * 100)):
+		aux = int(ceil(ffValues[chrIndex] * 100)) if int(ffValues[chrIndex] * 
+			100) != 0 else 1
+		for x in xrange(0, aux):
 			roulette.append(chrIndex)
+	print len(roulette)
 	return roulette
 
 def selector(population):
-	'''Return a list with the indexes of the chromesomes that will parents of
+	'''Return a list with the indexes of the chromosome that will be parents of
 	the next generation'''
 
 	roulette = newRoulette(population)
@@ -72,7 +77,7 @@ def selector(population):
 
 def crossover(population, coChance):
 	'''Receive a population and the chance of cross-over and return a population
-	with the (unmutated) chromesomes for the next generation'''
+	with the (unmutated) chromosome for the next generation'''
 
 	parents = selector(population)
 	chrLen = len(population[0])
@@ -103,3 +108,15 @@ def mutation(population, mChance):
 		nextPopulation.append(x)
 
 	return nextPopulation
+
+def fight(chr1, chr2):
+	if binToDec(chr1) > binToDec(chr2):
+		return chr1
+	else:
+		return chr2
+
+def championship(population):
+	champion = population[0]
+	for x in xrange(0, len(population) - 1, 2):
+		champion = fight(champion, x)
+	return champion
