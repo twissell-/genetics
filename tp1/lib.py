@@ -40,6 +40,9 @@ def objetiveFunc(population, coef = 2. ** 30. - 1.):
 		ofValues.append(float('%.3f'%((x / coef) ** 2)))
 	return ofValues
 
+def oneObjFunc(chr, coef = 2. ** 30. - 1.):
+	return float('%.3f'%((int(chrToString(chr), 2) / coef) ** 2))
+
 def fitness(population):
 	'''Receive a population and return a list of floats with the fitness 
 	function values. To do that the objetiveFunc() function is needed '''
@@ -58,11 +61,12 @@ def newRoulette(population):
 	roulette = []
 	ffValues = fitness(population)
 	for chrIndex in xrange(0, len(ffValues)):
-		aux = int(ceil(ffValues[chrIndex] * 100)) if int(ffValues[chrIndex] * 
-			100) != 0 else 1
+		aux = int(ceil(ffValues[chrIndex] * 100)) if int(ceil(ffValues[chrIndex] * 
+					100)) != 0 else 1
 		for x in xrange(0, aux):
 			roulette.append(chrIndex)
-	print len(roulette)
+	for x in xrange(0, len(roulette) - 100):
+		roulette.pop(randrange(len(roulette) - 1))
 	return roulette
 
 def selector(population):
@@ -95,7 +99,6 @@ def crossover(population, coChance):
 	return nextPopulation
 
 def mutation(population, mChance):
-
 	chrLen = len(population[0])
 	nextPopulation = []
 	for x in population:
@@ -110,13 +113,13 @@ def mutation(population, mChance):
 	return nextPopulation
 
 def fight(chr1, chr2):
-	if binToDec(chr1) > binToDec(chr2):
+	if int(chrToString(chr1), 2) > int(chrToString(chr2), 2):
 		return chr1
 	else:
 		return chr2
 
 def championship(population):
 	champion = population[0]
-	for x in xrange(0, len(population) - 1, 2):
-		champion = fight(champion, x)
+	for x in xrange(1, len(population) - 1):
+		champion = fight(champion, population[x])
 	return champion

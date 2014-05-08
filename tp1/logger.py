@@ -34,11 +34,11 @@ class logger(object):
 			'\t' + str(ofMin).replace('.', ',') + 
 			'\t' + str(ofAvg).replace('.', ',') + '\n')
 
-	def reportChampion(self, chro, dec, fitness, objetive):
-		self.log.write('Best Chromesome:\t' + chro + 
-			'\tDecimal Value:\t' + dec + 
-			'\tFitness:\t' + fitness +
-			'\tObjetive:\t' + objetive)
+	def reportChampion(self, champion, championObj, championPop ):
+		self.log.write('Best Chromosome:\t' + chrToString(champion) + 
+			'\nDecimal Value:\t' + str(int(chrToString(champion), 2)) + 
+			'\nObjetive:\t' + str(championObj) +
+			'\nPopulation:\t' + str(championPop))
 
 	def _open(self):
 		self.log = open(self.fname, 'a')
