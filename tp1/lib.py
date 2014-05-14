@@ -37,11 +37,11 @@ def objetiveFunc(population, coef = 2. ** 30. - 1.):
 	decPopulation = binToDec(population)
 	ofValues = []
 	for x in decPopulation:
-		ofValues.append(float('%.3f'%((x / coef) ** 2)))
+		ofValues.append(float('%.9f'%((x / coef) ** 2)))
 	return ofValues
 
 def oneObjFunc(chr, coef = 2. ** 30. - 1.):
-	return float('%.3f'%((int(chrToString(chr), 2) / coef) ** 2))
+	return float('%.9f'%((int(chrToString(chr), 2) / coef) ** 2))
 
 def fitness(population):
 	'''Receive a population and return a list of floats with the fitness 
@@ -51,7 +51,7 @@ def fitness(population):
 	ffValues = []
 	sumOF = sum(ofValues)
 	for x in ofValues:
-		ffValues.append(float('%.3f'%(x / sumOF)))
+		ffValues.append(float('%.9f'%(x / sumOF)))
 	return ffValues
 
 def newRoulette(population):

@@ -3,7 +3,7 @@ from logger import logger
 
 population = newPopulation(10, 30)
 coChance = 0.75
-mChance = 0.9
+mChance = 0.05
 iterations = 1000
 reportEach = iterations / 20
 champion = population[0]
