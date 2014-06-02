@@ -16,8 +16,8 @@ logger = logger()
 logger.startReport(coChance, mChance, iterations, reportEach)
 
 for x in xrange(0, iterations):
-	if(x % reportEach == 0):
-		logger.reportLine(x, objetiveFunc(population), fitness(population))
+	# if(x % reportEach == 0):
+	logger.reportLine(x, objetiveFunc(population), fitness(population))
 	localChampion = championship(population)
 	if int(chrToString(localChampion), 2) > int(chrToString(champion), 2):
 		champion = localChampion
