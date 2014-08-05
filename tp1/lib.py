@@ -41,6 +41,7 @@ def objetiveFunc(population, coef = 2. ** 30. - 1.):
 	return ofValues
 
 def oneObjFunc(chr, coef = 2. ** 30. - 1.):
+	'''Receive a single chromesome and return his objetive function value'''
 	return float('%.9f'%((int(chrToString(chr), 2) / coef) ** 2))
 
 def fitness(population):
@@ -99,6 +100,9 @@ def crossover(population, coChance):
 	return nextPopulation
 
 def mutation(population, mChance):
+	'''Receive a cross-overed population and return the next iteration 
+	population doing a random mutation on a gen per chromosome, un function
+	of the mutation chance (mChance)'''
 	chrLen = len(population[0])
 	nextPopulation = []
 	for x in population:
@@ -113,12 +117,15 @@ def mutation(population, mChance):
 	return nextPopulation
 
 def fight(chr1, chr2):
+	'''Receive 2 chromosomes and return the bes in terms their decimal values'''
 	if int(chrToString(chr1), 2) > int(chrToString(chr2), 2):
 		return chr1
 	else:
 		return chr2
 
 def championship(population):
+	'''Receive a population and return the best chromesome in terms of their
+	decimal values'''
 	champion = population[0]
 	for x in xrange(1, len(population) - 1):
 		champion = fight(champion, population[x])
