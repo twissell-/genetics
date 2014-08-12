@@ -8,7 +8,7 @@ def makeBag(pattern, dic):
 			aux.append(dic[x])
 	return Bag(aux)
 
-items = [Item(1800,72), Item(600,36), Item(1200,60)]
+items = [Item(1800,72,1), Item(600,36,2), Item(1200,60,3)]
 bb = Bag()
 
 for a in range(0, 2):

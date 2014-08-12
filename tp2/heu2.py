@@ -2,7 +2,7 @@ from item import Item
 from bag import Bag
 from operator import attrgetter
 
-items = [Item(1800,72), Item(600,36), Item(1200,60)]
+items = [Item(1800,72,1), Item(600,36,2), Item(1200,60,3)]
 b = Bag()
 
 while True:

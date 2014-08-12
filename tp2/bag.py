@@ -1,6 +1,5 @@
 class Bag(object):
 	def __init__(self, inside = []):
-		super(Bag, self).__init__()
 		self._inside = inside
 
 	def __str__(self):
