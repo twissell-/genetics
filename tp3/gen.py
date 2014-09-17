@@ -4,13 +4,13 @@ from data import *
 population = newPopulation(50, 23, 23)
 coChance = .75
 mChance = .05
-iterations = 1000000
+iterations = 200
 reportEach = iterations / 1
 champion = population[0]
 championObjFunc = oneObjFunc(champion)
 championPop = 0
 
-print('Running...')
+print('[i]: Running...')
 
 for x in range(0, iterations):
 	# if(x % reportEach == 0):
@@ -21,7 +21,7 @@ for x in range(0, iterations):
 		championPop = x
 	population = mutation(crossover(population, coChance), mChance)
 
-print('Done!')
+print('[i]: Done!')
 print('''
 Final Result:
 =============

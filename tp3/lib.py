@@ -152,7 +152,6 @@ def fight(chr1, chr2):
 		return chr1
 	else:
 		return chr2
-#	-------------^^^ re-wrote functions for this excercise ^^^-------------
 
 def championship(population):
 	'''Receive a population and return the best chromesome in terms of their
@@ -161,3 +160,35 @@ def championship(population):
 	for x in range(1, len(population) - 1):
 		champion = fight(champion, population[x])
 	return champion
+
+#	-------------^^^ re-wrote functions for this excercise ^^^-------------
+#	-------------vvv    functions for the heuristic part   vvv-------------
+
+def allYourBaseAreBelongToUs(city, road = []):
+	'''404: DocString not found! write one now!'''
+
+	def nearest(road):
+		m = 10000
+		for x in distances[road[-1]]:
+			if x == 0:
+				continue
+			elif distances[road[-1]].index(x) in road:
+				continue
+			elif x < m:
+				m, x = x, m
+		return distances[road[-1]].index(m)
+
+	if len(road) == len(cities): 
+		print('[!]: Road is Full.')
+		return road
+	elif len(road) == 0:
+		road.append(city)
+	while len(road) != len(cities):
+		road.append(nearest(road))
+	return road
+
+
+
+def roadMaker(city, road = []):
+	'''Like a shoemaker, but with roads'''
+	
