@@ -13,7 +13,7 @@ championPop = 0
 print('[i]: Running...')
 
 for x in range(0, iterations):
-	# if(x % reportEach == 0):
+	print('[i]: %.2f' % (x / 2.))
 	localChampion = championship(population)
 	if oneObjFunc(localChampion) > oneObjFunc(champion):
 		champion = localChampion
