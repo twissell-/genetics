@@ -2,9 +2,9 @@ from lib import *
 from data import *
 
 population = newPopulation(50, 23, 23)
-coChance = .75
+coChance = .76
 mChance = .05
-iterations = 200
+iterations = 1000000
 reportEach = iterations / 1
 champion = population[0]
 championObjFunc = oneObjFunc(champion)
@@ -13,7 +13,8 @@ championPop = 0
 print('[i]: Running...')
 
 for x in range(0, iterations):
-	print('[i]: %.2f' % (x / 2.))
+	if x % 100 == 0:
+		print('[i]: %.1f' % (x * 100 / iterations)) 
 	localChampion = championship(population)
 	if oneObjFunc(localChampion) > oneObjFunc(champion):
 		champion = localChampion
