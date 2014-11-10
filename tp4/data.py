@@ -1,0 +1,27 @@
+cities = list()
+distances = list()
+
+cities.append('Rosario')
+cities.append('Santa Fe')
+cities.append('Venado Tuerto')
+cities.append('Rafaela')
+cities.append('Reconquista')
+cities.append('San Lorenzo')
+cities.append('Esperanza')
+cities.append('Villa Constitución')
+cities.append('Casilda')
+cities.append('Coronda')
+
+#				  0    1    2    3    4    5    6    7    8    9
+distances.append([0,   187, 164, 218, 503, 28,  219, 68,  55,  142])
+distances.append([187, 0,   346, 117, 316, 167, 35,  255, 237, 45])
+distances.append([164, 346, 0,   354, 662, 187, 378, 182, 109, 301])
+distances.append([218, 117, 354, 0,   382, 240, 61,  286, 245, 130])
+distances.append([503, 316, 662, 382, 0,   483, 321, 571, 553, 361])
+distances.append([28,  167, 187, 240, 483, 0,   199, 96,  78,  122])
+distances.append([219, 35,  378, 61,  321, 199, 0,   287, 269, 77])
+distances.append([68,  255, 182, 286, 571, 96,  287, 0,   123, 210])
+distances.append([55,  237, 109, 245, 553, 78,  269, 123, 0,   192])
+distances.append([142, 45,  301, 130, 361, 122, 77,  210, 192, 0])
+
+print('[i]: Data load successuly!')
